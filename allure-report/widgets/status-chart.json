@@ -1,0 +1,31 @@
+[ {
+  "uid" : "bcc1c999ec8c453f",
+  "name" : "Найти случайного кота",
+  "time" : {
+    "start" : 1627240183380,
+    "stop" : 1627240183938,
+    "duration" : 558
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d417cdafd30eca7c",
+  "name" : "Удалить найденного котика",
+  "time" : {
+    "start" : 1627240183940,
+    "stop" : 1627240184146,
+    "duration" : 206
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "378c18a08b13f861",
+  "name" : "Проверка статуса ответа после удаления найденного кота",
+  "time" : {
+    "start" : 1627240184147,
+    "stop" : 1627240184338,
+    "duration" : 191
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

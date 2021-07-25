@@ -41,11 +41,12 @@ export default class CoreApi extends Client {
    * Get-Метод поиска кота по части начала имени [search-pattern]{@link https://meowle.qa-fintech.ru/api/core/api-docs-ui/#/%D0%9F%D0%BE%D0%B8%D1%81%D0%BA/get_cats_search_pattern}
    * @param name - имя
    * @param limit=10 - число записей
+   * @param offset - Смещение относительно начала списка имен
    */
-  static async searchCatByPartName(name: string, limit: number = 10): Promise<AxiosResponse<CatsList>> {
+  static async searchCatByPartName(name: string, limit: number = 10, offset: number = 0): Promise<AxiosResponse<CatsList>> {
     let response: AxiosResponse;
     try {
-      const params = new URLSearchParams({ name, limit: limit.toString() });
+      const params = new URLSearchParams({ name, limit: limit.toString(), offset: offset.toString()});
       response = await this.coreApiHttpClient.get(`${this.api}/search-pattern?${params}`);
     } catch (error) {
       if (axios.isAxiosError(error)) {
@@ -90,6 +91,24 @@ export default class CoreApi extends Client {
       } else {
         console.error(error);
       }
+    }
+    return response;
+  }
+
+  /**
+   * Get-Метод получения всех котов сгруппированный по группам [allByLetter]{@link https://meowle.qa-fintech.ru/api/core/api-docs-ui/#/%D0%9F%D0%BE%D0%B8%D1%81%D0%BA/get_cats_allByLetter}
+   * @param limit=5 - число записей в группе
+   */
+  static async allByLetter(limit: number = 10): Promise<AxiosResponse<{
+    groups: { title: string; cats: Cat[]; count_in_group: number; count_by_letter: number } [];
+    count_output: number;
+    count_all: number } >> {
+    let response: AxiosResponse;
+    try {
+      const params = new URLSearchParams({ limit: limit.toString() });
+      response = await this.coreApiHttpClient.get(`${this.api}/allByLetter`);
+    } catch (error) {
+      console.error(error);
     }
     return response;
   }
