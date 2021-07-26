@@ -20,4 +20,24 @@ export default class LikeApi extends Client {
     }
     return response;
   }
+
+  static async likesOnlyLike(id: number, voice: { like: boolean}): Promise<AxiosResponse<Cat>> {
+    let response: AxiosResponse;
+    try {
+      response = await this.coreApiHttpClient.post(`${this.api}/${id}/likes`, voice);
+    } catch (error) {
+      console.error(error);
+    }
+    return response;
+  }
+
+  static async likesOnlyDislike(id: number, voice: { dislike: boolean}): Promise<AxiosResponse<Cat>> {
+    let response: AxiosResponse;
+    try {
+      response = await this.coreApiHttpClient.post(`${this.api}/${id}/likes`, voice);
+    } catch (error) {
+      console.error(error);
+    }
+    return response;
+  }
 }

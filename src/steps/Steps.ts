@@ -3,6 +3,7 @@ import CoreApi from '../http/CoreApi';
 import { assert } from 'chai';
 import { AxiosResponse } from 'axios';
 import { Cat, CatsList } from '../../@types/common';
+import LikeApi from "../http/LikeApi";
 
 export default class Steps {
   public static common = {
@@ -10,7 +11,10 @@ export default class Steps {
     equal: Steps.equal,
     allByLetter: Steps.allByLetter,
     searchCatByPartName: Steps.searchCatByPartName,
-    removeCat: Steps.removeCat
+    removeCat: Steps.removeCat,
+    likes: Steps.likes,
+    likesOnlyLike: Steps.likesOnlyLike,
+    likesOnlyDislike: Steps.likesOnlyDislike
   };
   private static async getCatById(id: number): Promise<AxiosResponse<{ cat: Cat }>> {
     return await allure.step(`выполнен запрос GET /get-by-id c параметром ${id}`, async () => {
@@ -64,6 +68,39 @@ export default class Steps {
       const data = JSON.stringify(response.data, null, 2);
       allure.attachment('response /remove', data, 'application/json');
       console.info('Удалить найденного случайного котика:', 'получен ответ на запрос DELETE /remove:\n', response.data);
+      return response;
+    });
+  }
+
+  private static async likes(id: number, voice: { like: boolean; dislike: boolean }): Promise<AxiosResponse<Cat>> {
+    return await allure.step(`Выполнен запрос POST /likes c параметром id=${id}, like=${voice.like}, dislike=${voice.dislike}`, async () => {
+      console.info('Поставить лайк котику:', 'выполняется запрос POST /likes с параметром id='+id+', like='+voice.like+' dislike='+voice.dislike);
+      const response = await LikeApi.likes(id, voice);
+      const data = JSON.stringify(response.data, null, 2);
+      allure.attachment('response /likes', data, 'application/json');
+      console.info('Поставить лайк котику:', 'получен ответ на запрос POST /likes:\n', response.data);
+      return response;
+    });
+  }
+
+  private static async likesOnlyLike(id: number, voice: { like: boolean}): Promise<AxiosResponse<Cat>> {
+    return await allure.step(`Выполнен запрос POST /likes c параметром id=${id}, like=${voice.like}`, async () => {
+      console.info('Поставить лайк котику:', 'выполняется запрос POST /likes с параметром id='+id+', like='+voice.like);
+      const response = await LikeApi.likesOnlyLike(id, voice);
+      const data = JSON.stringify(response.data, null, 2);
+      allure.attachment('response /likes', data, 'application/json');
+      console.info('Поставить лайк котику:', 'получен ответ на запрос POST /likes:\n', response.data);
+      return response;
+    });
+  }
+
+  private static async likesOnlyDislike(id: number, voice: { dislike: boolean}): Promise<AxiosResponse<Cat>> {
+    return await allure.step(`Выполнен запрос POST /likes c параметром id=${id}, dislike=${voice.dislike}`, async () => {
+      console.info('Поставить дизлайк котику:', 'выполняется запрос POST /likes с параметром id='+id+', dislike='+voice.dislike);
+      const response = await LikeApi.likesOnlyDislike(id, voice);
+      const data = JSON.stringify(response.data, null, 2);
+      allure.attachment('response /likes', data, 'application/json');
+      console.info('Поставить дизлайк котику:', 'получен ответ на запрос POST /likes:\n', response.data);
       return response;
     });
   }

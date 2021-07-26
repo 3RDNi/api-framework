@@ -1,15 +1,26 @@
 {
-  "total" : 1,
+  "total" : 2,
   "items" : [ {
-    "uid" : "c618edc04a1b54754121f2fbdf93c77c",
-    "name" : "Проверка поиска и удаления случайного кота",
+    "uid" : "a0129aec49fb931ff3495e7444760e03",
+    "name" : "Проверка лайков случайного котика",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
       "skipped" : 0,
-      "passed" : 3,
+      "passed" : 4,
       "unknown" : 0,
-      "total" : 3
+      "total" : 4
+    }
+  }, {
+    "uid" : "fee2dd1f24a4b37f3fc62b71f74b3ff3",
+    "name" : "Проверка дизлайков случайного котика",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 4,
+      "unknown" : 0,
+      "total" : 4
     }
   } ]
 }

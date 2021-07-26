@@ -1,0 +1,13 @@
+{
+  "cats": [
+    {
+      "id": 2256487,
+      "name": "Рэндисаймон",
+      "description": null,
+      "tags": null,
+      "gender": "male",
+      "likes": 15,
+      "dislikes": 5
+    }
+  ]
+}

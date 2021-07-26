@@ -1,30 +1,80 @@
 [ {
-  "uid" : "378c18a08b13f861",
-  "name" : "Проверка статуса ответа после удаления найденного кота",
+  "uid" : "29ee5c94b3c10b56",
+  "name" : "Получить и сохранить количество лайков котика",
   "time" : {
-    "start" : 1627240184147,
-    "stop" : 1627240184338,
-    "duration" : 191
+    "start" : 1627310716036,
+    "stop" : 1627310716040,
+    "duration" : 4
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "d417cdafd30eca7c",
-  "name" : "Удалить найденного котика",
+  "uid" : "7a90b8c4090bc11b",
+  "name" : "Поставить n лайков котику",
   "time" : {
-    "start" : 1627240183940,
-    "stop" : 1627240184146,
-    "duration" : 206
+    "start" : 1627310716041,
+    "stop" : 1627310717038,
+    "duration" : 997
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "bcc1c999ec8c453f",
+  "uid" : "abdcfb7432ffddd7",
+  "name" : "Поставить m дизлайков котику",
+  "time" : {
+    "start" : 1627310718598,
+    "stop" : 1627310719655,
+    "duration" : 1057
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ce34512e08ae016",
   "name" : "Найти случайного кота",
   "time" : {
-    "start" : 1627240183380,
-    "stop" : 1627240183938,
-    "duration" : 558
+    "start" : 1627310718050,
+    "stop" : 1627310718591,
+    "duration" : 541
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "dff21157a311ad13",
+  "name" : "Проверка, что количество дизлайков котика соответсвует ожидаемому",
+  "time" : {
+    "start" : 1627310719656,
+    "stop" : 1627310719660,
+    "duration" : 4
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f721bfddbe8a112f",
+  "name" : "Получить и сохранить количество дизлайков котика",
+  "time" : {
+    "start" : 1627310718592,
+    "stop" : 1627310718597,
+    "duration" : 5
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ed3f6620fc3f3344",
+  "name" : "Найти случайного кота",
+  "time" : {
+    "start" : 1627310715470,
+    "stop" : 1627310716033,
+    "duration" : 563
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f37b128ff58240b1",
+  "name" : "Проверка, что количество лайков котика соответсвует ожидаемому",
+  "time" : {
+    "start" : 1627310717039,
+    "stop" : 1627310717042,
+    "duration" : 3
   },
   "status" : "passed",
   "severity" : "normal"
